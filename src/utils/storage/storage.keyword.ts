@@ -1,0 +1,5 @@
+export const STORAGE_KEYWORD = {
+  TOKEN: "TOKEN",
+  SHOP: "SHOP",
+  FCM_TOKEN: "FCM_TOKEN",
+}
