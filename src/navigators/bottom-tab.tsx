@@ -5,6 +5,7 @@ import {
   AddScreen,
   BudgetScreen,
   EmissionScreen,
+  MontlyBudget,
   SettingScreen,
 } from '../modules';
 import {Icon} from '../components/icon/icon';
@@ -12,20 +13,25 @@ import {ImageStyle, TextStyle} from 'react-native';
 import {color} from '../themes';
 import { Text } from '../components';
 import { presets } from '../components/text/text.presets';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export type BottomNavigatorParamList = {
+export type NavigatorParamList = {
+  home: undefined
   budget: undefined;
   emissions: undefined;
   add: undefined;
   act: undefined;
   settings: undefined;
+  monthly_budget: undefined;
 };
 
-const Tab = createBottomTabNavigator<BottomNavigatorParamList>();
+const Tab = createBottomTabNavigator<NavigatorParamList>();
+const StackBudget = createNativeStackNavigator<NavigatorParamList>();
 
-export function MyTabs() {
-  return (
-    <Tab.Navigator screenOptions={{
+const BudgetTabs = () => (
+  <StackBudget.Navigator
+    initialRouteName='budget'
+    screenOptions={{
       headerStyle: {
         backgroundColor: color.palette.white
       },
@@ -34,10 +40,23 @@ export function MyTabs() {
         fontSize: presets.title.fontSize,
         fontFamily: presets.title.fontFamily
       },
-    }}>
+    }}
+  >
+    <StackBudget.Screen name='budget' component={BudgetScreen}
+    options= {{title:'Carbon budget'}}
+    />
+    <StackBudget.Screen name='monthly_budget' component={MontlyBudget}
+    options= {{title:'Monthly Budget'}}
+    />
+  </StackBudget.Navigator>
+)
+
+export function MyTabs() {
+  return (
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
         name="budget"
-        component={BudgetScreen}
+        component={BudgetTabs}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon icon="IC_CALCULATOR" style={focused && ACTIVE} />
@@ -95,6 +114,7 @@ export function MyTabs() {
           )
         }}
       />
+      
     </Tab.Navigator>
   );
 }

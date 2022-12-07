@@ -10,6 +10,6 @@ export const IMAGES = {
     IC_ADD: require("../assets/images/ic_add.png"),
     IC_ACT: require("../assets/images/ic_act.png"),
     IC_SETTINGS: require("../assets/images/ic_settings.png"),
+    IC_31DAY: require("../assets/images/ic_31day.png")
 }
-
 export type ImageTypes = keyof typeof IMAGES
