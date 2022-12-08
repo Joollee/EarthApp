@@ -37,46 +37,49 @@ export const BudgetForMonth = ({style, onPress, item}: Props) => {
   const total = useMemo(() => {
     return data.reduce((a, b) => a + b.value, 0);
   }, [data]);
-  
+
   const percent = useMemo(() => {
-    return total / budget_for_month * 100;
+    return (total / budget_for_month) * 100;
   }, [data]);
-  
+
   const monthName = useMemo(() => {
     switch (month) {
       case 0:
-        return 'January'
+        return 'January';
       case 1:
-        return 'SDas'
+        return 'February';
       case 2:
-        return 'January'
+        return 'March';
       case 3:
-        return 'January'
+        return 'April ';
       case 4:
-        return 'January'
+        return 'May ';
       case 5:
-        return 'January'
+        return 'June ';
       case 6:
-        return 'January'
+        return 'July ';
       case 7:
-        return 'January'
+        return 'August ';
       case 8:
-        return 'January'
+        return 'September ';
       case 9:
-        return 'January'
+        return 'October ';
       case 10:
-        return 'OC'
-    
+        return 'November ';
+
       default:
-        return 'December'
+        return 'December';
     }
   }, [data]);
 
   const renderItem = (item: ItemData, index: number) => {
-    const {key, value} = item
-    const percentItem = value /total * 100
-    return renderDetailItem(`${key}: `, `${value} kg - ${percentItem.toFixed(0)} %`)
-  }
+    const {key, value} = item;
+    const percentItem = (value / total) * 100;
+    return renderDetailItem(
+      `${key}: `,
+      `${value} kg - ${percentItem.toFixed(0)} %`,
+    );
+  };
 
   const renderDetailItem = (
     label: string,
@@ -103,7 +106,7 @@ export const BudgetForMonth = ({style, onPress, item}: Props) => {
             percent={percent}
             radius={86}
             borderWidth={12}
-            color={color.primary}
+            color={percent < 100 ? color.primary : color.palette.warning}
             shadowColor={color.palette.white}
             bgColor={color.palette.white}
             outerCircleStyle={{

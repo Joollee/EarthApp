@@ -24,7 +24,6 @@ export const Button = ({style, text, icon_button, onPress}: Props) => {
   return (
     <TouchableOpacity style={[BUTTON, style]} onPress={onPress}>
       <Icon icon={icon_button} style={ACTIVE}></Icon>
-      {/* <Image source={IMAGES.IC_31DAY} style={ACTIVE}></Image> */}
       <Text text={text} preset="h3" style={TXT_BUTTON}></Text>
     </TouchableOpacity>
   );
