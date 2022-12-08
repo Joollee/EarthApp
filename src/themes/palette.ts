@@ -36,5 +36,6 @@ export const palette = {
   warning: '#D67100',
   white: '#FFFFFF',
   transparent: '#000000000',
-  gray: '#F9F9F9'
+  gray: '#F9F9F9',
+  gray0: '#F0F0F0'
 };
