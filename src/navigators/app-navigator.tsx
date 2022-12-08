@@ -8,8 +8,8 @@ import React from "react"
 import { useColorScheme } from "react-native"
 import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native"
 import { navigationRef } from "./navigation-utilities"
-import { AppStack, NavigatorParamList } from "./app-stack"
-
+import { AppStack, } from "./app-stack"
+import { NavigatorParamList } from "./bottom-tab"
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
  * as well as what properties (if any) they might take when navigating to them.

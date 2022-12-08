@@ -1,1 +1,1 @@
-export * from './SettingScreen'
+export * from './setting-screen'
