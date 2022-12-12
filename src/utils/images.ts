@@ -2,6 +2,7 @@ export const IMAGES = {
     /**
      * Image place
      */
+    IMG_RESTAURANT: require ("../assets/images/img_restaurant.png"),
 
 
     /** Icon place --------------------------------------------------------- */
@@ -11,6 +12,8 @@ export const IMAGES = {
     IC_ACT: require("../assets/images/ic_act.png"),
     IC_SETTINGS: require("../assets/images/ic_settings.png"),
     IC_31DAY: require("../assets/images/ic_31day.png"),
-    IC_SAVE: require("../assets/images/ic_save.png")
+    IC_SAVE: require("../assets/images/ic_save.png"),
+    IC_VECTOR: require("../assets/images/ic_vector.png"),
+    
 }
 export type ImageTypes = keyof typeof IMAGES
