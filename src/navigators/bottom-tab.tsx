@@ -14,6 +14,7 @@ import {color, headerOptionTheme} from '../themes';
 import {Text} from '../components';
 import {presets} from '../components/text/text.presets';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {ACT1Screen} from '../modules/act/screens/ACT1Screen';
 
 export type NavigatorParamList = {
   home: undefined;
@@ -23,6 +24,7 @@ export type NavigatorParamList = {
   act: undefined;
   settings: undefined;
   monthly_budget: undefined;
+  act1: undefined;
 };
 
 const Tab = createBottomTabNavigator<NavigatorParamList>();
@@ -41,6 +43,22 @@ const BudgetTabs = () => (
       name="monthly_budget"
       component={MontlyBudget}
       options={{title: 'Monthly Budget'}}
+    />
+  </StackBudget.Navigator>
+);
+const ActTabs = () => (
+  <StackBudget.Navigator
+    initialRouteName="act"
+    screenOptions={headerOptionTheme}>
+    <StackBudget.Screen
+      name="act"
+      component={ACTScreen}
+      options={{title: 'Sustainable Guide'}}
+    />
+    <StackBudget.Screen
+      name="act1"
+      component={ACT1Screen}
+      options={{title: 'Act'}}
     />
   </StackBudget.Navigator>
 );
@@ -79,7 +97,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
-          title: 'Emissions'
+          title: 'Emissions',
         }}
       />
       <Tab.Screen
@@ -100,7 +118,7 @@ export function MyTabs() {
       />
       <Tab.Screen
         name="act"
-        component={ACTScreen}
+        component={ActTabs}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon icon="IC_ACT" style={focused && ACTIVE} />
@@ -112,6 +130,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
+          headerShown: false
         }}
       />
       <Tab.Screen

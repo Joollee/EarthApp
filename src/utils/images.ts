@@ -14,6 +14,7 @@ export const IMAGES = {
     IC_31DAY: require("../assets/images/ic_31day.png"),
     IC_SAVE: require("../assets/images/ic_save.png"),
     IC_VECTOR: require("../assets/images/ic_vector.png"),
+    IC_VECTOR_STROKE: require("../assets/images/ic_vector_stroke.png")
     
 }
 export type ImageTypes = keyof typeof IMAGES

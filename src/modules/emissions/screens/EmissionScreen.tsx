@@ -6,7 +6,6 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
-import {Icon} from '../../../components/icon/icon';
 import {Button, Text} from '../../../components';
 import {hp, IMAGES, wp} from '../../../utils';
 import {color} from '../../../themes';
