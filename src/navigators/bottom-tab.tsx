@@ -15,6 +15,8 @@ import {Text} from '../components';
 import {presets} from '../components/text/text.presets';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ACT1Screen} from '../modules/act/screens/ACT1Screen';
+import FAQ from '../modules/settings/screens/faq-screen';
+import FaqScreen from '../modules/settings/screens/faq-screen';
 
 export type NavigatorParamList = {
   home: undefined;
@@ -25,6 +27,8 @@ export type NavigatorParamList = {
   settings: undefined;
   monthly_budget: undefined;
   act1: undefined;
+  setting: undefined;
+  faq: undefined;
 };
 
 const Tab = createBottomTabNavigator<NavigatorParamList>();
@@ -59,6 +63,22 @@ const ActTabs = () => (
       name="act1"
       component={ACT1Screen}
       options={{title: 'Act'}}
+    />
+  </StackBudget.Navigator>
+);
+const SettingTabs = () => (
+  <StackBudget.Navigator
+    initialRouteName="setting"
+    screenOptions={headerOptionTheme}>
+    <StackBudget.Screen
+      name="setting"
+      component={SettingScreen}
+      options={{title: 'Settings'}}
+    />
+    <StackBudget.Screen
+      name="faq"
+      component={FaqScreen}
+      options={{title: 'FAQ'}}
     />
   </StackBudget.Navigator>
 );
@@ -135,7 +155,7 @@ export function MyTabs() {
       />
       <Tab.Screen
         name="settings"
-        component={SettingScreen}
+        component={SettingTabs}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon icon="IC_SETTINGS" style={focused && ACTIVE} />
@@ -147,6 +167,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
+          headerShown: false
         }}
       />
     </Tab.Navigator>
