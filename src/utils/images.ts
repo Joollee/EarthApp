@@ -17,6 +17,10 @@ export const IMAGES = {
     IC_VECTOR_STROKE: require("../assets/images/ic_vector_stroke.png"),
     IC_VECTOR_STROKE_HEIGHT: require("../assets/images/ic_vector_stroke_height.png"),
     IC_VECTOR_STROKE_DOWN: require("../assets/images/ic_vector_stroke_down.png"),
-    
+    IC_RESTAURANT: require("../assets/images/ic_restaurant.png"),
+    IC_FILM: require("../assets/images/ic_film.png"),
+    IC_CAR: require("../assets/images/ic_car.png"),
+    IC_PLANE: require("../assets/images/ic_plane.png"),
+    IC_ELECTRICITY: require("../assets/images/ic_electricity.png")
 }
 export type ImageTypes = keyof typeof IMAGES

@@ -8,7 +8,7 @@ import {NavigatorParamList} from '../../../navigators/bottom-tab';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export const SettingScreen : FC<
-NativeStackScreenProps<NavigatorParamList, 'act'>
+NativeStackScreenProps<NavigatorParamList, 'setting'>
 > = ({navigation}) => {
   const pressAbout = () => {
     navigation.navigate('faq')

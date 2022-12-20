@@ -1,21 +1,21 @@
-import {
-  View,
-  ViewStyle,
-  ImageStyle,
-  TextStyle,
-  Image,
-} from 'react-native';
-import React from 'react';
+import {View, ViewStyle, ImageStyle, TextStyle, Image} from 'react-native';
+import React, {FC} from 'react';
 import {Button, Text} from '../../../components';
 import {hp, IMAGES, wp} from '../../../utils';
 import {color} from '../../../themes';
+import {NavigatorParamList} from '../../../navigators/bottom-tab';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 interface Props {
-  onPress: () => void
+  onPress: () => void;
 }
 
-export const EmissionScreen = () => {
+export const EmissionScreen: FC<
+  NativeStackScreenProps<NavigatorParamList, 'emission'>
+> = ({navigation}) => {
+  const pressAbout = () => {
+    navigation.navigate('add_emission');
+  };
 
-  
   return (
     <View style={ROOT}>
       <Image source={IMAGES.IMG_RESTAURANT} style={IMAGE_RESTAURANT} />
@@ -30,7 +30,7 @@ export const EmissionScreen = () => {
         style={TEXT_TXT2}></Text>
       <Button
         icon_button="IC_VECTOR"
-        onPress={null}
+        onPress={pressAbout}
         text="Add my first emission"
         style={BUTTON}
       />
@@ -63,5 +63,5 @@ const TEXT_TXT2: TextStyle = {
   textAlign: 'center',
 };
 const BUTTON: ViewStyle = {
-  marginTop: hp(66)
-}
+  marginTop: hp(66),
+};

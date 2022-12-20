@@ -5,6 +5,7 @@ import {
   AddScreen,
   BudgetScreen,
   EmissionScreen,
+  JuneEmissionsScreen,
   MontlyBudget,
   SettingScreen,
 } from '../modules';
@@ -12,11 +13,13 @@ import {Icon} from '../components/icon/icon';
 import {ImageStyle, TextStyle} from 'react-native';
 import {color, headerOptionTheme} from '../themes';
 import {Text} from '../components';
-import {presets} from '../components/text/text.presets';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {ACT1Screen} from '../modules/act/screens/ACT1Screen';
-import FAQ from '../modules/settings/screens/faq-screen';
 import FaqScreen from '../modules/settings/screens/faq-screen';
+import {AddEmissionScreen} from '../modules/emissions/screens/AddEmissionScreen';
+import { RecurringEmissionsScreen } from '../modules/emissions/screens/RecurringEmissionsScreen';
+
+
 
 export type NavigatorParamList = {
   home: undefined;
@@ -29,6 +32,10 @@ export type NavigatorParamList = {
   act1: undefined;
   setting: undefined;
   faq: undefined;
+  emission: undefined;
+  add_emission: undefined
+  recurring_emissions:undefined,
+  june_emissions:undefined
 };
 
 const Tab = createBottomTabNavigator<NavigatorParamList>();
@@ -82,6 +89,32 @@ const SettingTabs = () => (
     />
   </StackBudget.Navigator>
 );
+const EmissionsTabs = () => (
+  <StackBudget.Navigator
+    initialRouteName="emission"
+    screenOptions={headerOptionTheme}>
+    <StackBudget.Screen
+      name="emission"
+      component={EmissionScreen}
+      options={{title: 'Emission'}}
+    />
+    <StackBudget.Screen
+      name="add_emission"
+      component={AddEmissionScreen}
+      options={{title: 'Emission'}}
+    />
+    <StackBudget.Screen
+    name='recurring_emissions'
+    component={RecurringEmissionsScreen}
+    options={{title: 'Recurring emissions'}}
+    />
+     <StackBudget.Screen
+    name='june_emissions'
+    component={JuneEmissionsScreen}
+    options={{title: 'June'}}
+    />
+  </StackBudget.Navigator>
+);
 
 export function MyTabs() {
   return (
@@ -105,7 +138,7 @@ export function MyTabs() {
       />
       <Tab.Screen
         name="emissions"
-        component={EmissionScreen}
+        component={EmissionsTabs}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon icon="IC_EMISSION" style={focused && ACTIVE} />
@@ -117,7 +150,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
-          title: 'Emissions',
+          headerShown: false
         }}
       />
       <Tab.Screen
@@ -150,7 +183,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
-          headerShown: false
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -167,7 +200,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
-          headerShown: false
+          headerShown: false,
         }}
       />
     </Tab.Navigator>
