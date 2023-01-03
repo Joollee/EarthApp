@@ -21,6 +21,19 @@ export const IMAGES = {
     IC_FILM: require("../assets/images/ic_film.png"),
     IC_CAR: require("../assets/images/ic_car.png"),
     IC_PLANE: require("../assets/images/ic_plane.png"),
-    IC_ELECTRICITY: require("../assets/images/ic_electricity.png")
+    IC_ELECTRICITY: require("../assets/images/ic_electricity.png"),
+    IC_RESTAURANT_GREEN: (require("../assets/images/ic_restaurant_green.png")),
+    IC_BARCODE: require("../assets/images/ic_barcode.png"),
+    IC_PLAY: require("../assets/images/ic_play.png"),
+    IC_CARD: require("../assets/images/ic_card.png"),
+    IC_APPLE: require("../assets/images/ic_apple.png"),
+    IC_TRAIN: require("../assets/images/ic_train.png"),
+    IC_BOAT: require("../assets/images/ic_boat.png"),
+    IC_MOTORBIKE: require("../assets/images/ic_motorbike.png"),
+    IC_CIRCLE_BUTTON: require("../assets/images/ic_circlebutton.png"),
+    IC_PLUS: require("../assets/images/ic_plus.png"),
+    IC_EDIT: require("../assets/images/ic_edit.png"),
+    IC_REPEAT: require("../assets/images/ic_repeat.png")
+    
 }
 export type ImageTypes = keyof typeof IMAGES

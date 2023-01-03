@@ -18,8 +18,17 @@ import {ACT1Screen} from '../modules/act/screens/ACT1Screen';
 import FaqScreen from '../modules/settings/screens/faq-screen';
 import {AddEmissionScreen} from '../modules/emissions/screens/AddEmissionScreen';
 import { RecurringEmissionsScreen } from '../modules/emissions/screens/RecurringEmissionsScreen';
+import { Add_EmissionScreen } from '../modules/add/screens/Add_EmissionScreen';
+import { Add_Emission_TimeScreen} from '../modules/add/screens/Add_Emission_TimeScreen';
+import { Add_Emission_EndScreen } from '../modules/add/screens/Add_Emission_EndScreen';
+import { PeriodicityScreen } from '../modules/add/screens/PeriodicityScreen';
+import { ImageTypes } from '../utils';
 
-
+interface ItemNavigate {
+  icon: ImageTypes;
+  text: string;
+  check?: boolean
+}
 
 export type NavigatorParamList = {
   home: undefined;
@@ -35,8 +44,19 @@ export type NavigatorParamList = {
   emission: undefined;
   add_emission: undefined
   recurring_emissions:undefined,
-  june_emissions:undefined
+  june_emissions:undefined,
+  add_emission_detail: {
+    data: ItemNavigate[]
+  },
+  add_emission_end: {
+    title: string
+  } | undefined,
+  periodicity: undefined
+  add_emission_time: {
+    title: string
+  },
 };
+
 
 const Tab = createBottomTabNavigator<NavigatorParamList>();
 const StackBudget = createNativeStackNavigator<NavigatorParamList>();
@@ -115,7 +135,37 @@ const EmissionsTabs = () => (
     />
   </StackBudget.Navigator>
 );
-
+const AddTabs = () => (
+  <StackBudget.Navigator
+    initialRouteName="add"
+    screenOptions={headerOptionTheme}>
+    <StackBudget.Screen
+      name="add"
+      component={AddScreen}
+      options={{title: 'Add'}}
+    />
+    <StackBudget.Screen
+      name="add_emission_detail"
+      component={Add_EmissionScreen}
+      options={{title: 'AddEmission'}}
+    />
+    <StackBudget.Screen
+      name="add_emission_time"
+      component={Add_Emission_TimeScreen}
+      options={{title: 'AddEmission'}}
+    />
+    <StackBudget.Screen
+      name="add_emission_end"
+      component={Add_Emission_EndScreen}
+      options={{title: 'AddEmission'}}
+    />
+    <StackBudget.Screen
+      name="periodicity"
+      component={PeriodicityScreen}
+      options={{title: 'Periodicity'}}
+    />
+  </StackBudget.Navigator>
+);
 export function MyTabs() {
   return (
     <Tab.Navigator screenOptions={headerOptionTheme}>
@@ -155,7 +205,7 @@ export function MyTabs() {
       />
       <Tab.Screen
         name="add"
-        component={AddScreen}
+        component={AddTabs}
         options={{
           tabBarIcon: ({focused}) => (
             <Icon icon="IC_ADD" style={focused && ACTIVE} />
@@ -167,6 +217,7 @@ export function MyTabs() {
               style={[TXT_TAB, focused && TXT_ACTIVE]}
             />
           ),
+          headerShown: false
         }}
       />
       <Tab.Screen

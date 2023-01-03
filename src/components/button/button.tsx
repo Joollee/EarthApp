@@ -6,6 +6,7 @@ import {
   TextStyle,
   Image,
   ImageStyle,
+  TouchableOpacityProps
 } from 'react-native';
 import React from 'react';
 import {color} from '../../themes/color';
@@ -14,16 +15,22 @@ import {Text} from '..';
 import {IMAGES, ImageTypes} from '../../utils';
 import {Icon} from '../icon/icon';
 
-interface Props {
-  style: StyleProp<ViewStyle>;
+interface Props extends TouchableOpacityProps {
+  style?: StyleProp<ViewStyle>;
   text: string;
-  icon_button: ImageTypes;
+  icon_button?: ImageTypes;
   onPress: () => void;
 }
-export const Button = ({style, text, icon_button, onPress}: Props) => {
+export const Button = ({
+  style,
+  text,
+  icon_button,
+  onPress,
+  ...props
+}: Props) => {
   return (
-    <TouchableOpacity style={[BUTTON, style]} onPress={onPress}>
-      <Icon icon={icon_button} style={ACTIVE}></Icon>
+    <TouchableOpacity {...props} style={[BUTTON, style]} onPress={onPress}>
+      {icon_button && <Icon icon={icon_button} style={ACTIVE} />}
       <Text text={text} preset="h3" style={TXT_BUTTON}></Text>
     </TouchableOpacity>
   );
