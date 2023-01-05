@@ -4,7 +4,10 @@ export const IMAGES = {
      */
     IMG_RESTAURANT: require ("../assets/images/img_restaurant.png"),
     IMG_NMF_EARTH: require("../assets/images/img_nmf_earth.png"),
-
+    IMG_CAMERA: require("../assets/images/img_camera.png"),
+    IMG_NUTRI_SCORE: require("../assets/images/img_nutri_score.png"),
+    IMG_NOVA: require("../assets/images/img_nova.png"),
+    IMG_ECO_SCORE: require("../assets/images/img_eco_score.png"),
     /** Icon place --------------------------------------------------------- */
     IC_CALCULATOR: require("../assets/images/ic_calculator.png"),
     IC_EMISSION: require("../assets/images/ic_emission.png"),
@@ -33,7 +36,8 @@ export const IMAGES = {
     IC_CIRCLE_BUTTON: require("../assets/images/ic_circlebutton.png"),
     IC_PLUS: require("../assets/images/ic_plus.png"),
     IC_EDIT: require("../assets/images/ic_edit.png"),
-    IC_REPEAT: require("../assets/images/ic_repeat.png")
+    IC_REPEAT: require("../assets/images/ic_repeat.png"),
+    IC_T_SHIRF: require("../assets/images/ic_t_shirt.png")
     
 }
 export type ImageTypes = keyof typeof IMAGES

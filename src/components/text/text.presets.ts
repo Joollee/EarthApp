@@ -111,6 +111,17 @@ export const presets = {
     lineHeight: 12.1,
     fontFamily: typography.primaryBold,
   } as TextStyle,
+  /**
+   * default
+   * 
+   */
+  link: {
+   color: color.text,
+   fontSize: 12,
+   lineHeight: 15,
+   fontFamily: typography.primary,
+   textDecorationLine: "underline"
+  } as TextStyle
 }
 
 /**

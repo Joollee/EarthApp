@@ -23,11 +23,21 @@ import { Add_Emission_TimeScreen} from '../modules/add/screens/Add_Emission_Time
 import { Add_Emission_EndScreen } from '../modules/add/screens/Add_Emission_EndScreen';
 import { PeriodicityScreen } from '../modules/add/screens/PeriodicityScreen';
 import { ImageTypes } from '../utils';
+import { StreamingScreen } from '../modules/add/screens/StreamingScreen';
+import { AllowCameraScreen } from '../modules/add/screens/AllowCameraScreen';
+import { ScanComplete } from '../modules/add/screens/ScanComplete';
 
 interface ItemNavigate {
   icon: ImageTypes;
   text: string;
-  check?: boolean
+  check?: boolean;
+  measure: string,
+  number1: number,
+  number2?: number,
+  text_input1: string,
+  text_input2?: string,
+  title: string,
+  check_button?: boolean
 }
 
 export type NavigatorParamList = {
@@ -53,8 +63,18 @@ export type NavigatorParamList = {
   } | undefined,
   periodicity: undefined
   add_emission_time: {
-    title: string
+    title: string,
+    title_detail: string,
+    measure: string;
+    number1: number,
+    number2?: number,
+    text_input1: string,
+    text_input2?: string
+    check_button?:boolean
   },
+  streaming: undefined
+  allow_camera: undefined
+  scan_complete: undefined
 };
 
 
@@ -163,6 +183,21 @@ const AddTabs = () => (
       name="periodicity"
       component={PeriodicityScreen}
       options={{title: 'Periodicity'}}
+    />
+    <StackBudget.Screen
+      name="streaming"
+      component={StreamingScreen}
+      options={{title: 'AddEmission'}}
+    />
+     <StackBudget.Screen
+      name="allow_camera"
+      component={AllowCameraScreen}
+      options={{title: 'AddEmission'}}
+    />
+    <StackBudget.Screen
+      name="scan_complete"
+      component={ScanComplete}
+      options={{title: 'AddEmission'}}
     />
   </StackBudget.Navigator>
 );

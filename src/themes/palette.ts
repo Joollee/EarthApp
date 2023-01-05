@@ -37,5 +37,5 @@ export const palette = {
   white: '#FFFFFF',
   transparent: '#000000000',
   gray: '#F9F9F9',
-  gray0: '#F0F0F0'
+  gray10: '#F0F0F0'
 };
